@@ -1,0 +1,48 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  
+  box-sizing: border-box;
+}
+
+header, main, footer {
+  width: 80%;
+  margin-left: 10%;
+}
+
+header, main {
+  background-color: aliceblue;
+}
+
+footer {
+  background-color: black;
+  color: white; 
+}
+
+header, header ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header {
+  height: 80px;
+  padding: 20px;
+}
+
+/* nav > ul { */
+/* header ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+} */
+
+ul {
+  list-style: none;
+}
+
+.menuLi {
+  margin-right: 10px;
+  margin-left: 10px;
+}
