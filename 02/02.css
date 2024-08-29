@@ -29,7 +29,14 @@ footer > ul {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
 }
+
+footer li {
+  border: 1px dotted white;
+  text-align: center;
+}
+
 
 header, header ul {
   display: flex;
@@ -71,6 +78,12 @@ ul {
 
 .menuLi:hover {
   background-color: chocolate; 
+}
+
+#home {
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
 }
 
 a {
