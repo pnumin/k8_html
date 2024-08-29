@@ -45,4 +45,72 @@ ul {
 .menuLi {
   margin-right: 10px;
   margin-left: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  height: 45px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: royalblue;
+  color: white;
+}
+
+.menuLi:hover {
+  background-color: chocolate; 
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+li img {
+  width: 20px;
+  height: 20px;
+}
+
+article {
+  padding: 60px; 
+}
+
+h1 , article > p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+}
+ 
+section {
+  margin: 20px ;
+  padding: 20px 40px;
+  background-color: white;
+  border-radius: 15px;
+}
+
+h2 {
+  padding-bottom: 20px;
+}
+
+.secDiv {
+  display: flex;
+  flex-direction: row;
+}
+
+.secDiv > div {
+  width: 20%;
+}
+
+.secDiv img {
+  width: 80%;
+  border-radius: 50%;
+}
+
+.secDiv > p {
+  width: 80%;
+  font-size: medium;
+  color: gray;
 }
