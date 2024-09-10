@@ -1,3 +1,9 @@
+//OPEN API 데이터 가져오기
+const getData = (selDt, ul) => {
+  console.log(selDt);
+}
+
+
 //어제 날짜 구하기 함수
 const getYesterday = () => {
   const yesterday = new Date() ;
@@ -23,6 +29,7 @@ const getYesterday = () => {
 document.addEventListener('DOMContentLoaded', ()=>{
   //요소 가져오기
   const dt = document.querySelector('#dt') ;
+  const ul = document.querySelector('.sec > ul') ;
 
   //어제 날짜 구하기
   let yesterday = getYesterday() ;
@@ -30,5 +37,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
   //date 요소 최대값 결정
   dt.max = yesterday ;
+
+  //데이터 가져오기
+  dt.addEventListener('change', ()=>{
+    getData(dt.value.replaceAll('-',''), ul);
+  }) ;
 
 });
