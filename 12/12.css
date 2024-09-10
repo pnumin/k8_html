@@ -5,3 +5,28 @@
   justify-content: start;
   align-items: center;
 }
+
+.sec , .divDt  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+
+.sec {
+  width: 100%;
+  flex-direction: column;
+}
+
+.divDt {
+  width: 80%;
+  height: 60px;
+  background-color: aliceblue;
+  flex-direction: row;
+
+  border: 1px dotted gray;
+}
+
+input[type=date] {
+  width: 40%;
+  height: 30px;
+}
