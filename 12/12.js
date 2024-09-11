@@ -17,6 +17,8 @@ const getData = (selDt, ul) => {
         `<li class='mvli'>
             <span class='rank'>${item.rank}</span>
             <sapn class='movieNm'>${item.movieNm}</sapn>
+            <sapn class='openDt'>${item.openDt}</sapn>
+            <sapn class='rankInten'>${item.rankInten}</sapn>
           </li>`)
 
       tm = tm.join('')

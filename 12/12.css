@@ -73,3 +73,15 @@ input[type=date] {
 .rank:hover {
   background-color: brown;
 }
+
+.movieNm {
+  width: 60%;
+}
+
+.openDt {
+  width: 20%;
+}
+
+.rankInten {
+  width: 10%;
+}
