@@ -1,10 +1,10 @@
 //OPEN API 데이터 가져오기
 const getData = (selDt, ul, gubun) => {
-  console.log(gubun);
+  console.log('gubun = ' ,gubun);
   const testAPI = '82ca741a2844c5c180a208137bb92bd7' ;
   let url = `http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?` ;
   url = `${url}key=${testAPI}&targetDt=${selDt}`;
-  if (!gubun) {
+  if (gubun != 'T') {
     url = `${url}&repNationCd=${gubun}` ;
   }
 
@@ -19,14 +19,19 @@ const getData = (selDt, ul, gubun) => {
       let tm = dailyBoxOfficeList.map(item => 
         `<li class='mvli'>
             <span class='rank'>${item.rank}</span>
-            <sapn class='movieNm'>${item.movieNm}</sapn>
-            <sapn class='openDt'>${item.openDt}</sapn>
-            <sapn class='rankInten'>${item.rankInten}</sapn>
+            <span class='movieNm'>${item.movieNm}</span>
+            <span class='openDt'>${item.openDt}</span>
+            <span class='rankInten'>
+            ${item.rankInten > 0 ? 
+                '<span class="spRed">▲</span>' : item.rankInten < 0 ?  
+                                    '<span class="spBlue">▼</span>'  : '-'}
+            ${item.rankInten != 0 ? Math.abs(item.rankInten) : ''}
+            </span>
           </li>`)
 
       tm = tm.join('')
       ul.innerHTML = tm ;
-      console.log(tm)
+      // console.log(tm)
     })
     .catch(err => console.error(err)) ;
 
@@ -67,9 +72,19 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
   //date 요소 최대값 결정
   dt.max = yesterday ;
+  
+  //date 기본값
+  dt.value = yesterday ;
+
+  //기본 첫 페이지 보이기
+  getData(dt.value.replaceAll('-',''), ul, sel1.value);
 
   //데이터 가져오기
   dt.addEventListener('change', ()=>{
+    getData(dt.value.replaceAll('-',''), ul, sel1.value);
+  }) ;
+
+  sel1.addEventListener('change', ()=>{
     getData(dt.value.replaceAll('-',''), ul, sel1.value);
   }) ;
 

@@ -86,4 +86,14 @@ input[type=date], select {
 
 .rankInten {
   width: 10%;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.spRed {
+  color: red;
+}
+
+.spBlue {
+  color: blue;
 }
