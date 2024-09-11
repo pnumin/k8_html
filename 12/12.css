@@ -28,12 +28,23 @@
   border: 1px dotted gray;
 }
 
-input[type=date], select {
+input[type=date], select, fieldset {
   width: 40%;
   height: 30px;
   margin-left: 5px;
 }
- 
+
+fieldset {
+  font-size: small;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+
+label {
+  margin-right: 5px;
+  margin-left: 2px;
+}
 
 .sec > ul {
   list-style: none;
@@ -97,3 +108,5 @@ input[type=date], select {
 .spBlue {
   color: blue;
 }
+
+ 
