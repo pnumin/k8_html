@@ -1,3 +1,9 @@
+//상세정보 가져오기
+const getDetail = (movieCd) => {
+  alert("movieCd :" + movieCd) ;
+}
+
+
 //OPEN API 데이터 가져오기
 const getData = (selDt, ul, gubun) => {
   console.log('gubun = ' ,gubun);
@@ -17,7 +23,9 @@ const getData = (selDt, ul, gubun) => {
       console.log(dailyBoxOfficeList)
 
       let tm = dailyBoxOfficeList.map(item => 
-        `<li class='mvli'>
+        `<a href="#" onClick="getDetail(${item.movieCd})">
+          <li class='mvli'>
+            
             <span class='rank'>${item.rank}</span>
             <span class='movieNm'>${item.movieNm}</span>
             <span class='openDt'>${item.openDt}</span>
@@ -27,7 +35,8 @@ const getData = (selDt, ul, gubun) => {
                                     '<span class="spBlue">▼</span>'  : '-'}
             ${item.rankInten != 0 ? Math.abs(item.rankInten) : ''}
             </span>
-          </li>`)
+          </li>
+        </a>`)
 
       tm = tm.join('')
       ul.innerHTML = tm ;
