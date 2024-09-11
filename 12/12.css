@@ -28,10 +28,12 @@
   border: 1px dotted gray;
 }
 
-input[type=date] {
+input[type=date], select {
   width: 40%;
   height: 30px;
+  margin-left: 5px;
 }
+ 
 
 .sec > ul {
   list-style: none;

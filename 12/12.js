@@ -1,9 +1,12 @@
 //OPEN API 데이터 가져오기
-const getData = (selDt, ul) => {
-  console.log(selDt);
+const getData = (selDt, ul, gubun) => {
+  console.log(gubun);
   const testAPI = '82ca741a2844c5c180a208137bb92bd7' ;
   let url = `http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?` ;
   url = `${url}key=${testAPI}&targetDt=${selDt}`;
+  if (!gubun) {
+    url = `${url}&repNationCd=${gubun}` ;
+  }
 
   console.log(url);
 
@@ -56,6 +59,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
   //요소 가져오기
   const dt = document.querySelector('#dt') ;
   const ul = document.querySelector('.sec > ul') ;
+  const sel1 = document.querySelector('#sel1') ;
 
   //어제 날짜 구하기
   let yesterday = getYesterday() ;
@@ -66,7 +70,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
   //데이터 가져오기
   dt.addEventListener('change', ()=>{
-    getData(dt.value.replaceAll('-',''), ul);
+    getData(dt.value.replaceAll('-',''), ul, sel1.value);
   }) ;
 
 });
