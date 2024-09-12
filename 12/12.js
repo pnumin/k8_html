@@ -1,13 +1,27 @@
+//전역변수
+const testAPI = '82ca741a2844c5c180a208137bb92bd7' ;
+
 //상세정보 가져오기
 const getDetail = (movieCd) => {
-  alert("movieCd :" + movieCd) ;
+  const mvinfo = document.querySelector('#mvinfo') ;
+  let url = `https://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json?` ;
+  url = `${url}&key=${testAPI}&movieCd=${movieCd}` ;
+
+  console.log(url);
+  fetch(url)
+    .then(resp => resp.json())
+    .then(data => console.log(data))
+    .catch(err => console.error(err))
+
+
+  mvinfo.innerHTML = movieCd ;
 }
 
 
 //OPEN API 데이터 가져오기
 const getData = (selDt, ul, gubun) => {
   console.log('gubun = ' ,gubun);
-  const testAPI = '82ca741a2844c5c180a208137bb92bd7' ;
+  
   let url = `http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?` ;
   url = `${url}key=${testAPI}&targetDt=${selDt}`;
   if (gubun != 'T') {
