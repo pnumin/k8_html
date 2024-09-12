@@ -10,11 +10,25 @@ const getDetail = (movieCd) => {
   console.log(url);
   fetch(url)
     .then(resp => resp.json())
-    .then(data => console.log(data))
-    .catch(err => console.error(err))
+    .then(data => {
+      let movieInfo = data.movieInfoResult.movieInfo ;
+      let genres = movieInfo.genres.map(item => item.genreNm).join(',') ;
+      let companys = movieInfo.companys.map(item => 
+                                            `${item.companyNm}(${item.companyPartNm})`)
+                                       .join(',') ;
+      let actors = movieInfo.actors.slice(0,3).map(item => item.peopleNm).join(',') ;
+      console.log(genres)
+      console.log(companys)
 
-
-  mvinfo.innerHTML = movieCd ;
+      mvinfo.innerHTML = `
+        <div>${movieInfo.movieNm} (${movieInfo.openDt})</div>
+        <ul>
+          <li>장르 : ${genres}</li>
+          <li>출연진 : ${actors}</li>
+        </ul>
+      ` ;
+    })
+    .catch(err => console.error(err)) 
 }
 
 
