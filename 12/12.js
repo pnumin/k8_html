@@ -36,7 +36,7 @@ const getDetail = (movieCd) => {
 const getData = (selDt, ul, gubun) => {
   console.log('gubun = ' ,gubun);
   
-  let url = `http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?` ;
+  let url = `https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?` ;
   url = `${url}key=${testAPI}&targetDt=${selDt}`;
   if (gubun != 'T') {
     url = `${url}&repNationCd=${gubun}` ;
